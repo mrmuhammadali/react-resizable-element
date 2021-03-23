@@ -25,13 +25,13 @@ export const Resizable: React.FC<ResizableProps> = props => {
   return (
     <div
       className={[styles.root, classes.root, className].filter(Boolean).join(' ')}
-      data-direction={direction}
       data-testid="resizable"
       ref={container}
     >
       {resizable && (
         <span
           className={[styles.handle, classes.handle].filter(Boolean).join(' ')}
+          data-direction={direction}
           data-testid="handle"
           ref={handle}
         />
