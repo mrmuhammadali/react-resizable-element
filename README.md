@@ -1,4 +1,4 @@
-![tsdx](./example/demo.gif)
+![react-resizable-element](https://muhammadali.dev/react-resizable-element/demo.gif)
 
 ![npm](https://img.shields.io/npm/v/react-resizable-element?style=flat-square)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/react-resizable-element?style=flat-square)

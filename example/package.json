@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "rm -rf dist && rm -rf .parcel-cache && parcel index.html",
-    "build": "rm -rf dist && parcel build index.html --public-url ."
+    "build": "rm -rf dist && parcel build index.html --public-url . && cp demo.gif dist/"
   },
   "dependencies": {
     "react-app-polyfill": "^2.0.0",
