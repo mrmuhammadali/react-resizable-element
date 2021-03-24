@@ -1,2 +1,0 @@
-#root,body,html{margin:0;height:100%}.code-editor{height:100%;display:grid;grid-template-columns:auto 1fr;grid-template-rows:1fr auto;grid-template-areas:"editor preview" "editor error"}.resizable-editor{grid-area:editor;background:#444;border-right:1px solid #eee;width:550px}.editor{height:100%}.preview{grid-area:preview}.error{grid-area:error;height:250px;border-top:1px solid #eee;padding:5px 5px 0}.error h2{margin:0;display:inline;font-weight:400;font-size:15px;color:#888;border-bottom:1px solid #ccc}
-/*# sourceMappingURL=index.b5253e99.css.map */
