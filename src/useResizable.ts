@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { MutableRefObject, useEffect, useMemo, useRef, useState } from 'react';
 
 export enum Direction {
   top = 'top',
@@ -7,28 +7,32 @@ export enum Direction {
   right = 'right',
 }
 
+type Element = HTMLDivElement | HTMLSpanElement | HTMLElement | null;
+
 export interface ResizableOptions {
   direction: keyof typeof Direction;
   maxSize?: number;
   minSize?: number;
 }
 
-type UseResizable = (
-  options: ResizableOptions
-) => {
-  container: MutableRefObject<HTMLDivElement | null>;
-  handle: MutableRefObject<HTMLSpanElement | null>;
-};
+export interface UseResizable {
+  container: MutableRefObject<Element> | undefined;
+  handle: MutableRefObject<Element> | undefined;
+  isResizing: boolean;
+}
 
-export const useResizable: UseResizable = options => {
+export const useResizable = (options: ResizableOptions): UseResizable => {
   const { direction, maxSize = Number.MAX_SAFE_INTEGER, minSize = 0 } = options;
-  const isResizing = useRef(false);
-  const container = useRef<HTMLDivElement>(null);
-  const handle = useRef<HTMLSpanElement>(null);
+  const container = useRef<Element>(null);
+  const handle = useRef<Element>(null);
+  const isResizingRef = useRef(false);
+  const [isResizing, setResizing] = useState(false);
+  const shouldUpdateResizing = useRef(false);
 
   useEffect(() => {
     const handlePointerDown = () => {
-      isResizing.current = true;
+      isResizingRef.current = true;
+      if (shouldUpdateResizing.current) setResizing(true);
     };
     handle.current?.addEventListener('pointerdown', handlePointerDown);
   }, []);
@@ -55,10 +59,11 @@ export const useResizable: UseResizable = options => {
       return newWidth;
     };
     const handlePointerUp = () => {
-      isResizing.current = false;
+      isResizingRef.current = false;
+      if (shouldUpdateResizing.current) setResizing(false);
     };
     const handlePointerMove = (event: MouseEvent) => {
-      if (isResizing.current && container.current) {
+      if (isResizingRef.current && container.current) {
         const rect = container.current.getBoundingClientRect();
         if (direction === Direction.top || direction === Direction.bottom) {
           container.current.style.height = `${getPanelHeight(event.clientY, rect)}px`;
@@ -75,5 +80,15 @@ export const useResizable: UseResizable = options => {
     };
   }, [direction, maxSize, minSize]);
 
-  return { container, handle };
+  return useMemo(() => {
+    const refs = { container, handle } as UseResizable;
+    Object.defineProperty(refs, 'isResizing', {
+      get: () => {
+        shouldUpdateResizing.current = true;
+        return isResizing;
+      },
+      enumerable: true,
+    });
+    return refs;
+  }, [isResizing]);
 };

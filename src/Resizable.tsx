@@ -8,6 +8,7 @@ type ResizableProps = ResizableOptions & {
   classes?: { root?: string; handle?: string };
   children: JSX.Element;
   resizable?: boolean;
+  style: React.CSSProperties;
 };
 
 export const Resizable: React.FC<ResizableProps> = props => {
@@ -19,14 +20,16 @@ export const Resizable: React.FC<ResizableProps> = props => {
     maxSize,
     minSize,
     resizable = true,
+    style,
   } = props;
   const { container, handle } = useResizable({ direction, maxSize, minSize });
 
   return (
-    <div
+    <section
       className={[styles.root, classes.root, className].filter(Boolean).join(' ')}
       data-testid="resizable"
       ref={container}
+      style={style}
     >
       {resizable && (
         <span
@@ -37,6 +40,6 @@ export const Resizable: React.FC<ResizableProps> = props => {
         />
       )}
       {children}
-    </div>
+    </section>
   );
 };
