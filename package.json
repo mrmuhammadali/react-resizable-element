@@ -1,15 +1,37 @@
 {
-  "version": "0.1.2",
+  "name": "react-resizable-element",
+  "description": "Adds ability to resize width/height of an element.",
+  "author": "Muhammad Ali",
+  "repository": "https://github.com/mrmuhammadali/react-resizable-element.git",
+  "version": "0.1.3",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
+  "keywords": [
+    "react-resizable",
+    "use-resizable",
+    "resizable-element",
+    "resizable-panels"
+  ],
   "engines": {
     "node": ">=10"
   },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/react-resizable-element.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/react-resizable-element.cjs.production.min.js",
+      "limit": "5 KB"
+    },
+    {
+      "path": "dist/react-resizable-element.esm.js",
+      "limit": "5 KB"
+    }
+  ],
+  "side-effects": false,
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -25,31 +47,6 @@
   "peerDependencies": {
     "react": ">=16.8"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 90,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "react-resizable-element",
-  "author": "Muhammad Ali",
-  "module": "dist/react-resizable-element.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/react-resizable-element.cjs.production.min.js",
-      "limit": "5 KB"
-    },
-    {
-      "path": "dist/react-resizable-element.esm.js",
-      "limit": "5 KB"
-    }
-  ],
-  "side-effects": false,
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.1",
     "@testing-library/jest-dom": "^5.11.9",
@@ -67,5 +64,16 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
     "typescript": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 90,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
