@@ -3,6 +3,7 @@
 ![npm](https://img.shields.io/npm/v/react-resizable-element?style=flat-square)
 ![bundle size](https://img.shields.io/bundlephobia/minzip/react-resizable-element?style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mrmuhammadali/react-resizable-element/CI?style=flat-square)
+![Coveralls branch](https://img.shields.io/coveralls/github/mrmuhammadali/react-resizable-element/main)
 ![dependencies status](https://img.shields.io/librariesio/release/npm/react-resizable-element?style=flat-square)
 ![npm](https://img.shields.io/npm/dm/react-resizable-element?style=flat-square)
 ![pullrequest](<https://img.shields.io/badge/PR(s)-welcome-brightgreen.svg?style=flat-square>)
