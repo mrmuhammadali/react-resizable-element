@@ -8,7 +8,7 @@ type ResizableProps = ResizableOptions & {
   classes?: { root?: string; handle?: string };
   children: JSX.Element;
   resizable?: boolean;
-  style: React.CSSProperties;
+  style?: React.CSSProperties;
 };
 
 export const Resizable: React.FC<ResizableProps> = props => {
@@ -20,7 +20,7 @@ export const Resizable: React.FC<ResizableProps> = props => {
     maxSize,
     minSize,
     resizable = true,
-    style,
+    style = {},
   } = props;
   const { container, handle } = useResizable({ direction, maxSize, minSize });
 
