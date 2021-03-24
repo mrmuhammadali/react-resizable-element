@@ -22,7 +22,7 @@ export interface UseResizable {
 }
 
 export const useResizable = (options: ResizableOptions): UseResizable => {
-  const { direction, maxSize = Number.MAX_SAFE_INTEGER, minSize = 0 } = options;
+  const { direction, maxSize = 10000, minSize = 0 } = options;
   const container = useRef<Element>(null);
   const handle = useRef<Element>(null);
   const isResizingRef = useRef(false);

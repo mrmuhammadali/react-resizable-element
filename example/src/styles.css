@@ -23,10 +23,12 @@ body,
 .preview {
   grid-area: preview;
 }
-.error {
+.resizable-error {
   grid-area: error;
   height: 250px;
   border-top: 1px solid #eee;
+}
+.error {
   padding: 5px 5px 0 5px;
 }
 .error h2 {

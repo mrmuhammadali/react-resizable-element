@@ -36,11 +36,16 @@ const App = () => {
           <LiveEditor className="editor" />
         </Resizable>
         <LivePreview className="preview" />
-        <Resizable className="error" direction="top" minSize={100} maxSize={500}>
-          <>
+        <Resizable
+          className="resizable-error"
+          direction="top"
+          minSize={100}
+          maxSize={500}
+        >
+          <div className="error">
             <h2>Errors</h2>
             <LiveError />
-          </>
+          </div>
         </Resizable>
       </div>
     </LiveProvider>
