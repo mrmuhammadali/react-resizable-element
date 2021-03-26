@@ -25,7 +25,7 @@ export const Resizable: React.FC<ResizableProps> = props => {
   const { container, handle } = useResizable({ direction, maxSize, minSize });
 
   return (
-    <section
+    <div
       className={[styles.root, classes.root, className].filter(Boolean).join(' ')}
       data-testid="resizable"
       ref={container}
@@ -40,6 +40,6 @@ export const Resizable: React.FC<ResizableProps> = props => {
         />
       )}
       {children}
-    </section>
+    </div>
   );
 };

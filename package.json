@@ -3,7 +3,7 @@
   "description": "Adds ability to resize width/height of an element.",
   "author": "Muhammad Ali",
   "repository": "https://github.com/mrmuhammadali/react-resizable-element.git",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "files": [
     "dist",

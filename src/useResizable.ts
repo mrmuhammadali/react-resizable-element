@@ -7,24 +7,24 @@ export enum Direction {
   right = 'right',
 }
 
-type Element = HTMLDivElement | HTMLSpanElement | HTMLElement | null;
-
 export interface ResizableOptions {
   direction: keyof typeof Direction;
   maxSize?: number;
   minSize?: number;
 }
 
-export interface UseResizable {
-  container: MutableRefObject<Element> | undefined;
-  handle: MutableRefObject<Element> | undefined;
+export interface UseResizable<C = any, H = any> {
+  container: MutableRefObject<C>;
+  handle: MutableRefObject<H>;
   isResizing: boolean;
 }
 
-export const useResizable = (options: ResizableOptions): UseResizable => {
+export const useResizable = <C = HTMLDivElement, H = HTMLSpanElement>(
+  options: ResizableOptions
+): UseResizable<C, H> => {
   const { direction, maxSize = 10000, minSize = 0 } = options;
-  const container = useRef<Element>(null);
-  const handle = useRef<Element>(null);
+  const container = useRef<HTMLDivElement>(null);
+  const handle = useRef<HTMLSpanElement>(null);
   const isResizingRef = useRef(false);
   const [isResizing, setResizing] = useState(false);
   const shouldUpdateResizing = useRef(false);
